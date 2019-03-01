@@ -52,8 +52,8 @@ create `./buildSrc/src/main/kotlin/com/github/daggerok/plugin/HelloPlugin.kt` fi
 
 ```kotlin
 open class HelloExtension {
-  var greeting: String? = "Hello"
-  var name: String? = "buddy"
+  var greeting: String = "Hello"
+  var name: String = "buddy"
 }
 ```
 
@@ -66,7 +66,7 @@ class HelloPlugin : Plugin<Project> {
     project.extensions.add("hello", hello)
     tasks.register("hello") {
       doLast {
-        println("${hello.greeting?.capitalize()}, ${hello.name?.capitalize()}!")
+        println("${hello.greeting.capitalize()}, ${hello.name.capitalize()}!")
       }
     }
   }

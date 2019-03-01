@@ -6,10 +6,10 @@ import org.gradle.kotlin.dsl.create
 
 // https://docs.gradle.org/current/userguide/custom_plugins.html
 
-open class HelloExtension {
-  var greeting: String? = "Hello"
-  var name: String? = "buddy"
-}
+open class HelloExtension(
+  var greeting: String = "Hello",
+  var name: String = "buddy"
+)
 
 class HelloPlugin : Plugin<Project> {
   override fun apply(project: Project): Unit = project.run {
@@ -17,7 +17,7 @@ class HelloPlugin : Plugin<Project> {
     project.extensions.add("hello", hello)
     tasks.register("hello") {
       doLast {
-        println("${hello.greeting?.capitalize()}, ${hello.name?.capitalize()}!")
+        println("${hello.greeting.capitalize()}, ${hello.name.capitalize()}!")
       }
     }
   }

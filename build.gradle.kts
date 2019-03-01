@@ -1,11 +1,16 @@
-import org.gradle.api.tasks.wrapper.Wrapper.DistributionType.BIN
-
 // gradle init --type=basic --dsl=kotlin --project-name=gradle-kotlin-dsl-plugin-buildSrc
 plugins {
-  hello
   base
+  hello
   id("com.moowork.node") version "1.2.0"
 }
+
+tasks.withType<Wrapper> {
+  gradleVersion = "5.2.1"
+  distributionType = Wrapper.DistributionType.BIN
+}
+
+defaultTasks("hello")
 
 hello {
   greeting = "Привет"
@@ -21,10 +26,3 @@ node {
 tasks.create("start")
 tasks["start"].dependsOn("npm_start")
 tasks["build"].dependsOn("npm_run_build")
-
-defaultTasks("build")
-
-tasks.withType<Wrapper> {
-  gradleVersion = "5.2.1"
-  distributionType = BIN
-}
