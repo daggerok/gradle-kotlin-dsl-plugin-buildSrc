@@ -11,7 +11,7 @@ open class HelloExtension {
   var name: String? = "buddy"
 }
 
-open class HelloPlugin : Plugin<Project> {
+class HelloPlugin : Plugin<Project> {
   override fun apply(project: Project): Unit = project.run {
     val hello = project.extensions.create<HelloExtension>("HelloExtension")
     project.extensions.add("hello", hello)

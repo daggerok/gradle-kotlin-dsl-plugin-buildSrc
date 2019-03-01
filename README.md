@@ -1,8 +1,9 @@
 # gradle-kotlin-dsl-plugin-buildSrc
 Simple internal (located in `buildSrc`) Gradle plugin example, written in Kotlin using Gradle Kotlin DSL
 
-- GitHub [Pages](https://daggerok.github.iogradle-kotlin-dsl-plugin-buildSrc/) documentation
-- GitHub [daggerok/gradle-kotlin-dsl-plugin-buildSrc](https://github.com/daggerokgradle-kotlin-dsl-plugin-buildSrc) repository 
+- Travis CI [![Build Status](https://travis-ci.org/daggerok/gradle-kotlin-dsl-plugin-buildSrc.svg?branch=master)](https://travis-ci.org/daggerok/gradle-kotlin-dsl-plugin-buildSrc)
+- GitHub [Pages](https://daggerok.github.io/gradle-kotlin-dsl-plugin-buildSrc/) documentation
+- GitHub [daggerok/gradle-kotlin-dsl-plugin-buildSrc](https://github.com/daggerok/gradle-kotlin-dsl-plugin-buildSrc) repository 
 
 ## generate a project
 
@@ -59,7 +60,7 @@ open class HelloExtension {
 ### prepare plugin
 
 ```kotlin
-open class HelloPlugin : Plugin<Project> {
+class HelloPlugin : Plugin<Project> {
   override fun apply(project: Project): Unit = project.run {
     val hello = project.extensions.create<HelloExtension>("HelloExtension")
     project.extensions.add("hello", hello)
